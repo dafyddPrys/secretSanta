@@ -1,0 +1,14 @@
+html, body {
+  margin: 0;
+}
+
+
+header {
+  padding: 20px 10px;
+  background-color: red;
+  color:white;
+}
+
+header h2 {
+  margin:0;
+}
