@@ -21,7 +21,6 @@ app.use(bodyParser.json());
 
 
 app.get('/', (req, res) => {
-
   if(!nameStore.getNames()) {
     res.redirect('/new');
     return;
@@ -62,12 +61,11 @@ app.post('/new', (req, res) => {
 });
 
 app.get('/confirmed', (req, res) => {
-
   if(!nameStore.getNames()) {
     res.redirect('/new');
     return;
   }
-  
+
   res.render('confirmed', {
     names : nameStore.getNames()
   });
