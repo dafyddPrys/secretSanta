@@ -19,18 +19,21 @@ app.use(bodyParser.json());
 
 // ROUTES --------------------------------
 
-app.get('/', (req, res) => {
+app.use((req, res, next)=>{
 
-  if(nameStore.getNames()) {
-    // Return enter name template
-    res.render('index', {
-      names : nameStore.getNames()
-    });
+  if((req.originalUrl !== '/new') && !nameStore.getNames()) {
+    res.redirect('/new');
     return;
   }
+  next();
+});
 
-  // Return generate names screen.
-  res.redirect('/new');
+app.get('/', (req, res) => {
+
+  // Return enter name template
+  res.render('index', {
+    names : nameStore.getNames()
+  });
   return;
 
 });
@@ -56,7 +59,7 @@ app.get('/confirmed', (req, res) => {
 });
 
 // Posting new set of names
-app.post('/data', (req,res) => {
+app.post('/addNames', (req,res) => {
   nameStore.addNames(req.body.names);
   res.redirect('/confirmed');
 });
