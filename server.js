@@ -19,16 +19,13 @@ app.use(bodyParser.json());
 
 // ROUTES --------------------------------
 
-app.use((req, res, next)=>{
 
-  if((req.originalUrl !== '/new') && !nameStore.getNames()) {
+app.get('/', (req, res) => {
+
+  if(!nameStore.getNames()) {
     res.redirect('/new');
     return;
   }
-  next();
-});
-
-app.get('/', (req, res) => {
 
   // Return enter name template
   res.render('index', {
@@ -36,6 +33,18 @@ app.get('/', (req, res) => {
   });
   return;
 
+});
+
+app.post('/', (req, res) => {
+  try {
+    let match = nameStore.getMatch(req.body.name);
+    res.render('result', {
+      result : match
+    });
+  } catch(e) {
+    res.status(400).send(e);
+    return;
+  }
 });
 
 app.get('/new', (req, res) => {
@@ -53,15 +62,15 @@ app.post('/new', (req, res) => {
 });
 
 app.get('/confirmed', (req, res) => {
+
+  if(!nameStore.getNames()) {
+    res.redirect('/new');
+    return;
+  }
+  
   res.render('confirmed', {
     names : nameStore.getNames()
   });
-});
-
-// Posting new set of names
-app.post('/addNames', (req,res) => {
-  nameStore.addNames(req.body.names);
-  res.redirect('/confirmed');
 });
 
 
@@ -73,5 +82,5 @@ app.get('*', (req,res) => {
 
 // LISTEN --------------------------------
 
-app.listen(8100);
-console.log('listening on 8100');
+app.listen(8101);
+console.log('listening on 8101');

@@ -60,5 +60,10 @@ module.exports.getNames = function getNames() {
 }
 
 module.exports.getMatch = function getMatch(name) {
+  if(namesMap.hasOwnProperty(name)){
+    return namesMap[name];
+  }
+
+  throw new Error('No name match found');
 
 }
