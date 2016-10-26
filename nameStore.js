@@ -32,15 +32,12 @@ const generateMatches = function generateMatches() {
   for (let i = 0 ; i < toChooseArray.length; i++) {
 
       let arrayWithoutIthName = removeNameFromArray(toChooseArray[i],toBeChosenArray);
-      console.log('ith name ', toChooseArray[i]);
-      console.log('array without ith name ', arrayWithoutIthName);
-
       if(arrayWithoutIthName.length === 0) {
         // Left with dud match :( start again
         console.log('left with dud match. restarting...');
         i = -1;
         toBeChosenArray = names.map(n => n);
-        
+
       } else {
         let match = generateMatch( toChooseArray[i], arrayWithoutIthName);
         map[toChooseArray[i]] = match;
