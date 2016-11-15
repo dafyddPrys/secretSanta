@@ -12,3 +12,47 @@ header {
 header h2 {
   margin:0;
 }
+
+
+/* Main page */
+.main-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.main-form .form-item {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.name-input {
+  height:60px;
+  box-sizing: border-box;
+  background-color: lightgrey;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+}
+
+.main-form .form-submit {
+  height: 40px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border:none;
+  background-color: cornflowerblue;
+  color: snow;
+}
+
+/* Confirmed */
+
+.confirmed-names {
+  list-style: none;
+}
+
+.confirmed-names ul {
+  padding:0;
+}
