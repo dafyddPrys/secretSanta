@@ -1,11 +1,12 @@
 html, body {
   margin: 0;
+  font-size: 15pt;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
 
 header {
   padding: 20px 10px;
-  background-color: red;
+  background-color: #BB0F52;
   color:white;
 }
 
@@ -13,15 +14,29 @@ header h2 {
   margin:0;
 }
 
+.content {
+  width:100%;
+  max-width: 800px;
+  margin: auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
 
 /* Main page */
 .main-form {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  max-width: 400px;
+  max-width: 600px;
   margin: 30px auto;
   padding: 0 10px;
   box-sizing: border-box;
+}
+
+.main-form h1 {
+  color: #0C9A4A;
 }
 
 .main-form .form-item {
@@ -29,22 +44,53 @@ header h2 {
   margin: 10px 0;
 }
 
-.name-input {
-  height:60px;
-  box-sizing: border-box;
-  background-color: lightgrey;
-  text-align: center;
-  border: none;
+.names-cloud {
+  display: flex;
+  width:100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.names-cloud .name {
+  background-color: #BB0F52;
   border-radius: 3px;
+  padding:10px 20px;
+  color: snow;
+  margin: 10px;
+}
+
+.names-cloud .name:hover {
+  cursor: pointer;
+  background-color: #CF336F;
+  border: 2px solid #EF9B3B;
+  margin : 8px;
+}
+
+.names-cloud input[type=radio]:checked + .name {
+  background-color: #CF336F;
+  border: 2px solid #EF9B3B;
+  margin : 8px;
+}
+
+.names-cloud input {
+  display:none;
 }
 
 .main-form .form-submit {
-  height: 40px;
-  padding: 5px 10px;
+  margin-top: 30px;
+  font-size: 15pt;
+  height: 50px;
+  padding: 10px 10px;
   border-radius: 3px;
   border:none;
-  background-color: cornflowerblue;
+  background-color: #0C9A4A;
   color: snow;
+}
+
+.main-form .form-submit:hover {
+  background-color: #2AAA62;
+  cursor: pointer;
 }
 
 /* Confirmed */
@@ -55,4 +101,26 @@ header h2 {
 
 .confirmed-names ul {
   padding:0;
+}
+
+
+/* RESULT */
+
+.result {
+  display:flex;
+  margin-top: 30px;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+}
+
+.result-title {
+  margin-bottom: 40px;
+}
+
+
+.result-name {
+  font-size: 40pt;
+  color:#0C9A4A;
+  font-weight: 700;
 }

@@ -68,9 +68,17 @@ module.exports.getNames = function getNames() {
   return names;
 }
 
-module.exports.getMatch = function getMatch(name) {
-  if(namesMap.hasOwnProperty(name)){
-    return namesMap[name];
+// Return lower case names with no spaces.
+module.exports.getSafeNames = function getSafeNames() {
+  return names.map((name) => {
+    return name.toLowerCase().replace(' ','_');
+  });
+}
+
+module.exports.getMatch = function getMatch(index) {
+  if(namesMap.hasOwnProperty(names[index])){
+    console.log('we found a match: ', namesMap[names[index]]);
+    return namesMap[names[index]];
   }
 
   throw new Error('No name match found');

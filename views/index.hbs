@@ -1,6 +1,15 @@
-<h1>Secret santa</h1>
 <form action="/" method="post" class="main-form">
-  <label class="form-item" for="name-field">Enter your name to see who your secret santa match is</label>
-  <input class="form-item name-input" name="name" type="text">
+  <h1>Cymau Secret Santa!</h1>
+
+  {{safeNames.[0]}}
+
+  <div>Select your name from the list below:</div>
+  <br/>
+  <div class="names-cloud">
+    {{#each names}}
+    <input id="name-{{@index}}" type="radio" value="{{@index}}" name="names">
+    <label class="name" for="name-{{@index}}">{{this}}</label>
+    {{/each}}
+  </div>
   <button class="form-item form-submit" type="submit">Find my match</button>
 </form>

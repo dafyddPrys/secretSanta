@@ -28,7 +28,8 @@ app.get('/', (req, res) => {
 
   // Return enter name template
   res.render('index', {
-    names : nameStore.getNames()
+    names : nameStore.getNames(),
+    safeNames : nameStore.getSafeNames()
   });
   return;
 
@@ -36,7 +37,8 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   try {
-    let match = nameStore.getMatch(req.body.name);
+    console.log(req.body);
+    let match = nameStore.getMatch(req.body.names);
     res.render('result', {
       result : match
     });
