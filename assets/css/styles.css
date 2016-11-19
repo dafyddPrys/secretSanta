@@ -11,6 +11,11 @@ header {
   color:white;
 }
 
+header a {
+  color:inherit;
+  text-decoration: inherit;
+}
+
 header h2 {
   margin:0;
 }
