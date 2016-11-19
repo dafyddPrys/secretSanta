@@ -81,6 +81,6 @@ app.get('*', (req,res) => {
 
 
 // LISTEN --------------------------------
-
-app.listen(8081);
-console.log('listening on 8101');
+var port = process.env.PORT || 8081
+app.listen(port);
+console.log('listening on ', port);
